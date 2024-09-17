@@ -3,7 +3,7 @@ while (continuar){
      //Ingreso temperatura
     let temperaturaIngresada = Number(prompt('Ingrese la temperatura del espacio a evaluar'))
     let temperaturaAmbiente
-    while (isNaN(temperaturaIngresada)) {
+    while (isNaN(temperaturaIngresada)||(temperaturaIngresada==0)) {
         temperaturaIngresada = Number(prompt('El dato ingresado es incorrecto, ingrese la temperatura del espacio a evaluar'))
     }
 
@@ -19,14 +19,22 @@ while (continuar){
 
     //Ingreso humedad
     let humedad = Number(prompt('Ingrese la humedad relativa del espacio a evaluar'))
-    while (isNaN(humedad) || (humedad>100) || (humedad<0)) {
-        humedad = Number(prompt('Ingrese la humedad relativa del espacio a evaluar'))
+    while (isNaN(humedad) || (humedad>100) || (humedad<0) || (humedad==0)) {
+        humedad = Number(prompt('El dato ingresado es incorrecto, ingrese la humedad relativa del espacio a evaluar'))
     }
 
     //Ingreso etapa del ciclo
-    let etapaIngresada = Number(prompt('Ingrese la etapa en la del ciclo que se encuentra (1=Vegetacion Temprana ;2=Vegetación tardia o preflora;3=Flora media o tardía'))
+    let etapaIngresada = Number(prompt(
+        'Ingrese la etapa en la del ciclo que se encuentra.\n' + 
+        '1=Vegetacion Temprana.\n' +
+        '2=Vegetación tardia o preflora.\n' +
+        '3=Flora media o tardía.'))
     while (isNaN(etapaIngresada) || (etapaIngresada<0) || (etapaIngresada>3)) {
-        etapaIngresada =(Number(prompt('El dato ingresado es incorrecto, ingrese la etapa en la del ciclo que se encuentra (1=Vegetacion Temprana ;2=Vegetación tardia o preflora;3=Flora media o tardía) ')))
+        etapaIngresada =Number(prompt(
+            'El dato ingresado es incorrecto, ingrese la etapa en la del ciclo que se encuentra.\n' + 
+            '1=Vegetacion Temprana.\n' +
+            '2=Vegetación tardia o preflora.\n' +
+            '3=Flora media o tardía.'))
     }
     //Forzado a numero entero
     let etapa = Math.floor(etapaIngresada)
