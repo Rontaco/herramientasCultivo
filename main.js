@@ -1,8 +1,39 @@
-let continuar=true
-while (continuar){
+//Funcion para el calculo de presion de vapor
+function calculoVps(x)  {
+    return 0.61078 * Math.exp((17.27 * x) / (x + 237.3))
+}
+
+//Funcion para declarar los rangos del VPD y devolución
+function evalVPD (vpd, etapa){
+    let rango
+        switch (etapa) {
+            case 1:
+                rango = {min:0.8,max:1.2}
+                break
+            case 2:
+                rango = {min:1.2,max:1.8}
+                break
+            case 3:
+                rango = {min:1.0,max:1.6}
+                break
+            default:
+                break
+            }
+    
+            if (vpd>= rango.min && vpd <=rango.max) {
+                return 'correcto'
+            } else {
+                return 'incorrecto, deberias corregir tus parametros'
+            }
+            }
+
+
+let temperaturaAmbiente, temperaturaHoja, pvsAmbiente, pvsHoja, vp, vpd, etapa
+let continuarVpd=true
+
+while (continuarVpd){
      //Ingreso temperatura
     let temperaturaIngresada = Number(prompt('Ingrese la temperatura del espacio a evaluar'))
-    let temperaturaAmbiente
     while (isNaN(temperaturaIngresada)||(temperaturaIngresada==0)) {
         temperaturaIngresada = Number(prompt('El dato ingresado es incorrecto, ingrese la temperatura del espacio a evaluar'))
     }
@@ -37,42 +68,15 @@ while (continuar){
             '3=Flora media o tardía.'))
     }
     //Forzado a numero entero
-    let etapa = Math.floor(etapaIngresada)
-
-    //Funcion para el calculo de presion de vapor
-    function calculoVps(x)  {
-        return 0.61078 * Math.exp((17.27 * x) / (x + 237.3))
-    }
+    etapa = Math.floor(etapaIngresada)
 
     //Calculo del VPD
-    let temperaturaHoja=(temperaturaAmbiente - 2)
-    let pvsAmbiente = calculoVps(temperaturaAmbiente)
-    let pvsHoja =calculoVps(temperaturaHoja)
-    let vp= pvsHoja * (humedad/100)
-    let vpd= pvsAmbiente - vp
+    temperaturaHoja=(temperaturaAmbiente - 2)
+    pvsAmbiente = calculoVps(temperaturaAmbiente)
+    pvsHoja =calculoVps(temperaturaHoja)
+    vp= pvsHoja * (humedad/100)
+    vpd= pvsAmbiente - vp
 
-    //Funcion para declarar los rangos del VPD y devolución
-    function evalVPD (vpd, etapa){
-    let rango = 0
-        switch (etapa) {
-            case 1:
-                rango = {min:0.8,max:1.2}
-                break
-            case 2:
-                rango = {min:1.2,max:1.8}
-                break
-            case 3:
-                rango = {min:1.0,max:1.6}
-                break
-            default:
-                break }
-
-        if (vpd>= rango.min && vpd <=rango.max) {
-            return 'correcto'
-        } else {
-            return 'incorrecto, deberias corregir tus parametros'
-        }
-        }
     alert ('El valor del VPD es de '+vpd+' y es '+evalVPD(vpd,etapa))
 
     //Monitoreo
@@ -86,5 +90,5 @@ while (continuar){
     console.log(evalVPD(vpd, etapa))
 
     //Repetición bucle
-    continuar=confirm('¿Queres calcular de vuelta?')
+    continuarVpd=confirm('¿Queres calcular de vuelta?')
 }
