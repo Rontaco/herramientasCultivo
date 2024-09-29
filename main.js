@@ -26,11 +26,26 @@ function evalVPD (vpd, etapa){
                 return 'incorrecto, deberias corregir tus parametros'
             }
             }
+//Funcion para calculo de fertilzantes
+function calculoFertilizantes(x) {
+    fertilizanteVega=cantidadAgua*ratiosFertilización[x][0]
+    fertilizanteMacro=cantidadAgua*ratiosFertilización[x][1]
+    fertilizanteFlora=cantidadAgua*ratiosFertilización[x][2]
+}
+
 let temperaturaIngresada, temperaturaAmbiente, temperaturaHoja, pvsAmbiente, pvsHoja, vp, vpd, etapa, usoFarenheit, humedad, etapaIngresada
 let horasDeLuz, ppfdPromedioDli, dliResultante
+let cantidadAgua, opcionMenuFertilizantes, opcionMenuFertilizantesIngresada, fertilizanteVega, fertilizanteMacro, fertilizanteFlora, etapaFertilizante
+let ratiosFertilización = {
+    esqueje: [0.4, 0.4, 0.4],
+    vegetativo: [3.6,2.4,1.2],
+    preflora:[2.4, 2.4, 2.4],
+    flora:[1.2,2.4,3.6],
+    floraPlus:[1.2, 2.4, 4.8],
+}
 let opcionMenuIngresada, opcionMenu
 let continuarMenu=true
-let continuarVpd, continuarDli
+let continuarVpd, continuarDli, continuarFertilizantes
 while (continuarMenu){
     opcionMenuIngresada = Number(prompt(
         '¿Que herramienta desea usar?.\n'+
@@ -38,7 +53,7 @@ while (continuarMenu){
         '2: Calculadora DLI.\n'+
         '3: Calculadora Fertilizantes (WIP).\n'
     ))
-    while (isNaN(opcionMenuIngresada) || (opcionMenuIngresada<0) || (opcionMenuIngresada>2)) {
+    while (isNaN(opcionMenuIngresada) || (opcionMenuIngresada<0) || (opcionMenuIngresada>3)) {
         opcionMenuIngresada =Number(prompt(
             'La herramienta que desea utilizar es inexistente o esta en progreso, seleccione una opción.\n' + 
             '1: Calculadora VPD.\n'+
@@ -134,9 +149,48 @@ if (opcionMenu==1){
         '¿Desea volver a usar la calculadora de DLI?'
     )
 }
-}
-continuarMenu=confirm('¿Desea usar otra herramienta?')
-}
-
-
-
+}else if (opcionMenu==3){
+    continuarFertilizantes=true
+    while (continuarFertilizantes) {
+    cantidadAgua = Number(prompt('Ingrese la cantidad de litros de agua a usar'))
+    while (isNaN(cantidadAgua) || (cantidadAgua<0)) {
+        cantidadAgua = Number(prompt('El dato ingresado es incorrecto, ingrese la cantidad de litros de agua a usar'))
+    }
+    opcionMenuFertilizantesIngresada = Number(prompt(
+        'Ingrese la etapa en la del ciclo que se encuentra.\n' + 
+        '1=Esqueje\n' +
+        '2=Vegetativo\n' +
+        '3=Preflora\n' +
+        '4=Flora\n' +
+        '5=Flora Plus'
+        ))
+    while (isNaN(opcionMenuFertilizantesIngresada) || (opcionMenuFertilizantesIngresada<1) || (opcionMenuFertilizantesIngresada>5)) {
+        opcionMenuFertilizantesIngresada = Number(prompt(
+            'El dato ingresado es correcto, ingrese la etapa en la del ciclo que se encuentra.\n' + 
+            '1=Esqueje\n' +
+            '2=Vegetativo\n' +
+            '3=Preflora\n' +
+            '4=Flora\n' +
+            '5=Flora Plus'
+            ))
+    }
+    opcionMenuFertilizantes=Math.floor(opcionMenuFertilizantesIngresada)
+    
+    if (opcionMenuFertilizantes == 1) {
+        calculoFertilizantes('esqueje')
+    }else if (opcionMenuFertilizantes == 2) {
+        calculoFertilizantes('vegetativo')
+    }else if (opcionMenuFertilizantes == 3) {
+        calculoFertilizantes('preflora')
+    }else if (opcionMenuFertilizantes == 4) {
+        calculoFertilizantes('flora')
+    }else if (opcionMenuFertilizantes == 5) {
+        calculoFertilizantes('floraplus')
+    }
+    continuarFertilizantes= confirm(
+        'VEGA: ' + fertilizanteVega + 'ml\n'+
+        'MACRO: ' + fertilizanteMacro + 'ml\n'+
+        'FLORA: ' + fertilizanteFlora + 'ml\n' +
+        'Desea volver a usar la calculadora de fertilizantes?')    
+}}
+continuarMenu=confirm('¿Desea usar otra herramienta?')}
