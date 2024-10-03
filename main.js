@@ -25,7 +25,8 @@ function evalVPD (vpd, etapa){
             } else {
                 return 'incorrecto, deberias corregir tus parametros'
             }
-            }
+        }
+
 //Funcion para calculo de fertilzantes
 function calculoFertilizantes(x) {
     fertilizanteVega=cantidadAgua*ratiosFertilización[x][0]
@@ -35,8 +36,10 @@ function calculoFertilizantes(x) {
 
 //Variables VPD
 let temperaturaIngresada, temperaturaAmbiente, temperaturaHoja, pvsAmbiente, pvsHoja, vp, vpd, etapa, usoFarenheit, humedad, etapaIngresada
+
 //Variables DPI
 let horasDeLuz, ppfdPromedioDli, dliResultante
+
 //Variables Fertilizantes 
 let cantidadAgua, opcionMenuFertilizantes, opcionMenuFertilizantesIngresada, fertilizanteVega, fertilizanteMacro, fertilizanteFlora, etapaFertilizante
 const ratiosFertilización = {
@@ -46,24 +49,51 @@ const ratiosFertilización = {
     flora:[1.2,2.4,3.6],
     floraPlus:[1.2, 2.4, 4.8],
 }
+
+//Variables Lx a PPF
+let opcionLed, resultadoFinalPpfd, mensajePpfd
+
+class lucesFactores {
+    constructor(factor, led, nombre) {
+        this.factor = factor
+        this.led = led
+        this.nombre = nombre
+    }
+    calcularPpfd(lumenesIngresado){
+        return lumenesIngresado * this.factor
+    }
+}
+
+const led3000K = new lucesFactores(0.019027, true, "LED 3000K")
+const led4000K = new lucesFactores(0.017823, true, "LED 4000K")
+const led6000K = new lucesFactores(0.017823, true, "LED 6000K")
+const sodio = new lucesFactores(0.012974, false, "Sodio")
+const lec = new lucesFactores(0.018151, false, "LEC")
+
+//Array para posterior indexado
+const luces = [led3000K, led4000K, led6000K, sodio, lec]
+
 //Variables menu
 let opcionMenuIngresada, opcionMenu
 let continuarMenu=true
-let continuarVpd, continuarDli, continuarFertilizantes
+let continuarVpd, continuarDli, continuarFertilizantes, continuarLumenesAPpfd
 
 while (continuarMenu){
     opcionMenuIngresada = Number(prompt(
         '¿Que herramienta desea usar?.\n'+
         '1: Calculadora VPD.\n'+
         '2: Calculadora DLI.\n'+
-        '3: Calculadora Fertilizantes (WIP).\n'
+        '3: Calculadora Fertilizantes\n'+
+        '4: Calculadora PPFD.\n'
     ))
-    while (isNaN(opcionMenuIngresada) || (opcionMenuIngresada<0) || (opcionMenuIngresada>3)) {
+    while (isNaN(opcionMenuIngresada) || (opcionMenuIngresada<0) || (opcionMenuIngresada>4)) {
         opcionMenuIngresada =Number(prompt(
             'La herramienta que desea utilizar es inexistente o esta en progreso, seleccione una opción.\n' + 
             '1: Calculadora VPD.\n'+
             '2: Calculadora DLI.\n'+
-            '3: Calculadora Fertilizantes (WIP).\n'))
+            '3: Calculadora Fertilizantes\n'+
+            '4: Calculadora PPFD.\n'
+        ))
     }
 opcionMenu=Math.floor(opcionMenuIngresada)
 if (opcionMenu==1){
@@ -200,6 +230,42 @@ if (opcionMenu==1){
         'MACRO: ' + fertilizanteMacro + 'ml\n'+
         'FLORA: ' + fertilizanteFlora + 'ml\n' +
         '¿Desea volver a usar la calculadora de fertilizantes?')    
-}}
-continuarMenu=confirm('¿Desea usar otra herramienta?')}
+}
+}else if (opcionMenu == 4) {
+    continuarLumenesAPpfd = true
+    while (continuarLumenesAPpfd) {
+        lumenesIngresado = Number(prompt('Ingrese la cantidad de lumenes de la medición'));
+        while (isNaN(lumenesIngresado) || (lumenesIngresado < 0) || (lumenesIngresado > 100000)) {
+            lumenesIngresado = Number(prompt('El dato ingresado es incorrecto, ingrese la cantidad de lumenes de la medición'));
+        }
+
+        const calcularPpfd = () => {
+            return luces.map(luz => {
+                return {
+                    nombre: luz.nombre,
+                    resultado: luz.calcularPpfd(lumenesIngresado),
+                    led: luz.led
+                }
+            });
+        };
+
+        const ppfdCalculados = calcularPpfd();
+        
+        let opcionLed = confirm('¿Desea el resultado de solo los LEDs?');
+        if (opcionLed) {
+            resultadoFinalPpfd = ppfdCalculados.filter(luz => luz.led === true);
+        } else {
+            resultadoFinalPpfd = ppfdCalculados;
+        }
+
+        let mensajePpfd = opcionLed ? "Resultados de luces LED:\n" : "Resultados de todas las luces:\n";
+        resultadoFinalPpfd.forEach(luz => {
+            mensajePpfd += `${luz.nombre}: ${luz.resultado}\n`;
+        });
+        continuarLumenesAPpfd=confirm(mensajePpfd+'¿Desea volver a usar la calculadora de lumenes?');
+    }
+}
+}
+continuarMenu=confirm('¿Desea usar otra herramienta?')
+
 
