@@ -33,19 +33,24 @@ function calculoFertilizantes(x) {
     fertilizanteFlora=cantidadAgua*ratiosFertilización[x][2]
 }
 
+//Variables VPD
 let temperaturaIngresada, temperaturaAmbiente, temperaturaHoja, pvsAmbiente, pvsHoja, vp, vpd, etapa, usoFarenheit, humedad, etapaIngresada
+//Variables DPI
 let horasDeLuz, ppfdPromedioDli, dliResultante
+//Variables Fertilizantes 
 let cantidadAgua, opcionMenuFertilizantes, opcionMenuFertilizantesIngresada, fertilizanteVega, fertilizanteMacro, fertilizanteFlora, etapaFertilizante
-let ratiosFertilización = {
+const ratiosFertilización = {
     esqueje: [0.4, 0.4, 0.4],
     vegetativo: [3.6,2.4,1.2],
     preflora:[2.4, 2.4, 2.4],
     flora:[1.2,2.4,3.6],
     floraPlus:[1.2, 2.4, 4.8],
 }
+//Variables menu
 let opcionMenuIngresada, opcionMenu
 let continuarMenu=true
 let continuarVpd, continuarDli, continuarFertilizantes
+
 while (continuarMenu){
     opcionMenuIngresada = Number(prompt(
         '¿Que herramienta desea usar?.\n'+
@@ -150,6 +155,7 @@ if (opcionMenu==1){
     )
 }
 }else if (opcionMenu==3){
+    //Herramienta para calculo de cantidad de fertilizantes
     continuarFertilizantes=true
     while (continuarFertilizantes) {
     cantidadAgua = Number(prompt('Ingrese la cantidad de litros de agua a usar'))
@@ -174,8 +180,9 @@ if (opcionMenu==1){
             '5=Flora Plus'
             ))
     }
+    //Forzado a numero entero
     opcionMenuFertilizantes=Math.floor(opcionMenuFertilizantesIngresada)
-    
+    //Seleccion de la etapa
     if (opcionMenuFertilizantes == 1) {
         calculoFertilizantes('esqueje')
     }else if (opcionMenuFertilizantes == 2) {
@@ -185,12 +192,14 @@ if (opcionMenu==1){
     }else if (opcionMenuFertilizantes == 4) {
         calculoFertilizantes('flora')
     }else if (opcionMenuFertilizantes == 5) {
-        calculoFertilizantes('floraplus')
+        calculoFertilizantes('floraPlus')
     }
+    //Devolución
     continuarFertilizantes= confirm(
         'VEGA: ' + fertilizanteVega + 'ml\n'+
         'MACRO: ' + fertilizanteMacro + 'ml\n'+
         'FLORA: ' + fertilizanteFlora + 'ml\n' +
-        'Desea volver a usar la calculadora de fertilizantes?')    
+        '¿Desea volver a usar la calculadora de fertilizantes?')    
 }}
 continuarMenu=confirm('¿Desea usar otra herramienta?')}
+
