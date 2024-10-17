@@ -80,20 +80,20 @@ let continuarVpd, continuarDli, continuarFertilizantes, continuarLumenesAPpfd
 
 while (continuarMenu){
     opcionMenuIngresada = Number(prompt(
-        '¿Que herramienta desea usar?.\n'+
-        '1: Calculadora VPD.\n'+
-        '2: Calculadora DLI.\n'+
-        '3: Calculadora Fertilizantes\n'+
-        '4: Calculadora PPFD.\n'
+`¿Que herramienta desea usar?.
+1: Calculadora VPD.
+2: Calculadora DLI.
+3: Calculadora Fertilizantes
+4: Calculadora PPFD.`
     ))
     while (isNaN(opcionMenuIngresada) || (opcionMenuIngresada<0) || (opcionMenuIngresada>4)) {
         opcionMenuIngresada =Number(prompt(
-            'La herramienta que desea utilizar es inexistente o esta en progreso, seleccione una opción.\n' + 
-            '1: Calculadora VPD.\n'+
-            '2: Calculadora DLI.\n'+
-            '3: Calculadora Fertilizantes\n'+
-            '4: Calculadora PPFD.\n'
-        ))
+`La herramienta que desea utilizar es inexistente o esta en progreso, seleccione una opción.
+1: Calculadora VPD.
+2: Calculadora DLI.
+3: Calculadora Fertilizantes
+4: Calculadora PPFD.`
+    ))
     }
 opcionMenu=Math.floor(opcionMenuIngresada)
 if (opcionMenu==1){
@@ -124,16 +124,18 @@ if (opcionMenu==1){
    
        //Ingreso etapa del ciclo
        etapaIngresada = Number(prompt(
-           'Ingrese la etapa en la del ciclo que se encuentra.\n' + 
-           '1=Vegetacion Temprana.\n' +
-           '2=Vegetación tardia o preflora.\n' +
-           '3=Flora media o tardía.'))
+`Ingrese la etapa en la del ciclo que se encuentra.
+1=Vegetacion Temprana.
+2=Vegetación tardia o preflora
+3=Flora media o tardía.`))
+
        while (isNaN(etapaIngresada) || (etapaIngresada<0) || (etapaIngresada>3)) {
            etapaIngresada =Number(prompt(
-               'El dato ingresado es incorrecto, ingrese la etapa en la del ciclo que se encuentra.\n' + 
-               '1=Vegetacion Temprana.\n' +
-               '2=Vegetación tardia o preflora.\n' +
-               '3=Flora media o tardía.'))
+`El dato ingresado es incorrecto, ingrese la etapa en la del ciclo que se encuentra.
+1=Vegetacion Temprana.
+2=Vegetación tardia o preflora
+3=Flora media o tardía.`))
+
        }
        //Forzado a numero entero
        etapa = Math.floor(etapaIngresada)
@@ -156,8 +158,8 @@ if (opcionMenu==1){
        console.log(evalVPD(vpd, etapa))
 
        continuarVpd= confirm (
-        'El valor del VPD es de '+vpd+' y es '+evalVPD(vpd,etapa)+'.\n'+
-        '¿Desea volver a usar la calculadora VPD?'
+`El valor del VPD es de ${vpd} y es ${evalVPD(vpd,etapa)}
+¿Desea volver a usar la calculadora VPD?`
     )
    }
 }else if (opcionMenu==2){
@@ -180,10 +182,10 @@ if (opcionMenu==1){
     dliResultante = ppfdPromedioDli/horasDeLuz
     
     continuarDli = confirm(
-        'El resultado es de '+dliResultante.toFixed(2)+' mol/m2/d.\n'+
-        '¿Desea volver a usar la calculadora de DLI?'
-    )
+`El resultado es de ${dliResultante.toFixed(2)} mol/m2/d.
+¿Desea volver a usar la calculadora de DLI?`)
 }
+
 }else if (opcionMenu==3){
     //Herramienta para calculo de cantidad de fertilizantes
     continuarFertilizantes=true
@@ -193,21 +195,21 @@ if (opcionMenu==1){
         cantidadAgua = Number(prompt('El dato ingresado es incorrecto, ingrese la cantidad de litros de agua a usar'))
     }
     opcionMenuFertilizantesIngresada = Number(prompt(
-        'Ingrese la etapa en la del ciclo que se encuentra.\n' + 
-        '1=Esqueje\n' +
-        '2=Vegetativo\n' +
-        '3=Preflora\n' +
-        '4=Flora\n' +
-        '5=Flora Plus'
+    `Ingrese la etapa en la del ciclo que se encuentra.
+    1=Esqueje
+    2=Vegetativo
+    3=Preflora
+    4=Flora
+    5=Flora Plus`
         ))
     while (isNaN(opcionMenuFertilizantesIngresada) || (opcionMenuFertilizantesIngresada<1) || (opcionMenuFertilizantesIngresada>5)) {
         opcionMenuFertilizantesIngresada = Number(prompt(
-            'El dato ingresado es correcto, ingrese la etapa en la del ciclo que se encuentra.\n' + 
-            '1=Esqueje\n' +
-            '2=Vegetativo\n' +
-            '3=Preflora\n' +
-            '4=Flora\n' +
-            '5=Flora Plus'
+    `El dato ingresado es correcto, ingrese la etapa en la del ciclo que se encuentra.
+    1=Esqueje
+    2=Vegetativo
+    3=Preflora
+    4=Flora
+    5=Flora Plus`
             ))
     }
     //Forzado a numero entero
