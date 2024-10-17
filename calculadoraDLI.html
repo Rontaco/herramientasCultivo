@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Herramientas de cultivo</title>
 </head>
 <body>
-    
+    <h1>CALCULADORA DE DLI</h1>
+    <form action="">
+        <label>Ingrese la cantidad de horas de luz por dia</label>
+            <input class="formulariosDLI" type="number" name="horasDeLuz">
+        <label>Ingrese la cantidad de PPFD que usa en promedio</label>
+            <input class="formulariosDLI" type="number" name="ppfdPromedioDli">
+        <button id="calcular">CALCULAR</button>
+    </form>
+    <div>
+        <div>El resultado es de</div>
+        <output></output>
+        <button id="limpiar">LIMPIAR</button>
+    </div>
+
+    <script src="calculadoraDLI.js"></script>
 </body>
 </html>

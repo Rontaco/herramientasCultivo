@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HERRAMIENTAS DE CULTIVO</title>
 </head>
 <body>
-    
+    <h1>CALCULADORA DE FERTILIZANTES (LINEA AMAZING)</h1>
+    <form action="">
+        <label>Ingrese la cantidad de litros de agua a usar</label>
+            <input type="number" name="cantidadAgua">
+        <label>Seleccione el estadio actual</label>
+            <select name="etapas" id="etapas">
+                <option value="esqueje">Esqueje</option>
+                <option value="vegetativo">Vegetativo</option>
+                <option value="preFlora">Pre Flora</option>
+                <option value="flora">Flora</option>
+                <option value="floraPlus">Flora +</option>
+            </select>
+        <button id="calcular">CALCULAR</button>
+    </form>
+    <div>
+        <div>El resultado es de</div>
+        <output></output>
+        <button id="limpiar">LIMPIAR</button>
+    </div>
+    <script src="calculadoraFertilizantes.js"></script>
 </body>
 </html>

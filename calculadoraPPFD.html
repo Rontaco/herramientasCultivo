@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Herramientas de cultivo</title>
 </head>
 <body>
-    
+    <h1>CALCULADORA DE PPFD</h1>
+    <form action="">
+        <label for="lumenes">Ingrese la cantidad de lumenes de la medición</label>
+            <input type="text" name="lumenes" id="lumenes">
+        <label for="opcionLeds">Solo leds?</label>
+            <select name="opcionLeds" id="opcionLeds">
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+        <button id="calcular">CALCULAR</button>
+    </form>
+    <div>
+        <output></output>
+        <button id="limpiar">LIMPIAR</button>
+    </div>
+    <script src="calculadoraPPFD.js"></script>
 </body>
 </html>

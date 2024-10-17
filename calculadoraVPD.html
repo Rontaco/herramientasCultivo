@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HERRAMIENTAS DE CULTIVO</title>
 </head>
 <body>
+<h1>CALCULADORA VPD</h1>
+<form action="">
+    <label for="temperatura">Ingrese la temperatura</label>
+        <input type="text" name="temperatura" id="temperatura">
+        <select name="tipoDeTemperatura" id="tipoDeTemperatura">
+            <option value="celsius">C°</option>
+            <option value="fahrenheit">F°</option>
+        </select>
+    <label for="humedad">Ingrese la humedad relativa</label>
+        <input type="text" name="humedad" id="humedad">
+    <label for="etapas"></label>
+    <select name="etapas" id="etapas">
+        <option value="vegeTemprana">Vegetación temprana</option>
+        <option value="preFlora">Vegetacion tardía / Pre Flora</option>
+        <option value="floraTardia">Flora media o tardia</option>
+    </select>   
+    <button id="calcular">CALCULAR</button>
     
+
+</form>
+<div>
+    <output></output>
+    <button id="limpiar">LIMPIAR</button>
+</div>
+
+<script src="calculadoraVPD.js"></script>
 </body>
 </html>
