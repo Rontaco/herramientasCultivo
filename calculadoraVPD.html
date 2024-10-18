@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HERRAMIENTAS DE CULTIVO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<h1>CALCULADORA VPD</h1>
+<body class="claro">
+<header>
+    <a href="index.html"><img id="logoHC" src="media/logoHC.svg" alt="Logo de herramientas de cultivo"></a>
+    <h1>CALCULADORA VPD</h1>
+    <button id="modoOscuroClaro">CAMBIAR A MODO OSCURO</button>
+</header>
 <form action="">
     <label for="temperatura">Ingrese la temperatura</label>
         <input type="text" name="temperatura" id="temperatura">
@@ -30,7 +35,7 @@
     <output></output>
     <button id="limpiar">LIMPIAR</button>
 </div>
-
+<script src="modoOscuro.js"></script>
 <script src="calculadoraVPD.js"></script>
 </body>
 </html>

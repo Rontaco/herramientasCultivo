@@ -2,10 +2,17 @@
     background-color: whitesmoke;
     color: black;
 }
-
-
-
 .oscuro {
     background-color: black;
     color: yellow;
+}
+#logoHC {
+    width: 100px;
+    height: 100px;
+}
+.logoHCOscuro {
+    filter: invert(100%)
+}
+.logoHCClaro {
+    filter: invert(0%)
 }
