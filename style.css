@@ -1,3 +1,4 @@
+/* CONFIGURACION MODO OSCURO */
 .claro {
     background-color: whitesmoke;
     color: black;
@@ -6,13 +7,60 @@
     background-color: black;
     color: yellow;
 }
+
+/* CONFIGURACION LOGO */
 #logoHC {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    padding: 0px 15px;
+    filter: invert(100%);
 }
-.logoHCOscuro {
-    filter: invert(100%)
+/* CONFIGURACION DROPDOWN */
+.dropdown-herramientasdecultivo {
+    padding: 0px 15px !important;
+    color: white !important;
+    font-size: 30px !important;
+    font-weight: 500 !important;
 }
-.logoHCClaro {
-    filter: invert(0%)
+.dropdown-content {
+    background-color: white;
+    padding: 0px px;
+}
+.dropdown-item {
+    background-color: black;
+    color: white;
+}
+/* CONFIGURACION BOTON OSCUROCLARO */
+#modoOscuroClaro {
+    padding: 5px;
+    border:2px solid green;
+    border-radius: 10px;
+    background-color:#cacfd2;
+    color: black;
+    font-style: italic;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+.bienvenida {
+    color: black !important;
+    background-color: gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+.bienvenida-2 {
+    padding: 70px 100px;
+    font-size: 20px;
+}
+.imagen-index {
+    padding: 10px 0px;
+}
+output {
+    border-radius: 10px !important;
+    border: 2px solid rgb(224, 224, 17) !important;
+    padding: 10px !important;
+}
+.container-calculadoraFertilizantes, .container-vpd, .container-dli, .container-ppfd{
+    font-size: 20px;
+    font-weight: 500;
 }

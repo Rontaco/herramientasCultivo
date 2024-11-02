@@ -5,31 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HERRAMIENTAS DE CULTIVO</title>
     <link rel="stylesheet" href="style.css">
+    <!--Bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<header>
-    <a href="index.html"><img id="logoHC" src="media/logoHC.svg" alt="Logo de herramientas de cultivo"></a>
-    <h1>CALCULADORA DE FERTILIZANTES (LINEA AMAZING)</h1>
-    <button id="modoOscuroClaro">CAMBIAR A MODO OSCURO</button>
-</header>
-    <form action="">
-        <label>Ingrese la cantidad de litros de agua a usar</label>
-            <input type="number" name="cantidadAgua">
-        <label>Seleccione el estadio actual</label>
-            <select name="etapas" id="etapas">
-                <option value="esqueje">Esqueje</option>
-                <option value="vegetativo">Vegetativo</option>
-                <option value="preFlora">Pre Flora</option>
-                <option value="flora">Flora</option>
-                <option value="floraPlus">Flora +</option>
-            </select>
-        <button id="calcular">CALCULAR</button>
-    </form>
-    <div>
-        <div>El resultado es de</div>
-        <output></output>
-        <button id="limpiar">LIMPIAR</button>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html"><img class="navbar-brand img-fluid" id="logoHC" src="media/logoHC.svg" alt="Logo de herramientas de cultivo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropdown-herramientasdecultivo" href="#" role="button" data-bs-toggle="dropdown">HERRAMIENTAS DE CULTIVO</a>
+                    <ul class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <li><a class="dropdown-item" href="calculadoraVPD.html">Calculadora de VPD</a></li>
+                            <li><a class="dropdown-item" href="calculadoraFertilizantes.html">Calculadora de fertilizantes amazing</a></li>
+                            <li><a class="dropdown-item" href="calculadoraDLI.html">Calculadora de DLI</a></li>
+                            <li><a class="dropdown-item" href="calculadoraPPFD.html">Calculadora de PPFD</a></li>
+                        </div>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <button id="modoOscuroClaro">CAMBIAR A MODO OSCURO</button>
+            </div>
+          </nav>
+    </header>
+    <div class="container mt-5 container-calculadoraFertilizantes">
+        <form action="">
+            <div class="row mb-2 text-center"> <!-- Fila para la cantidad de agua -->
+                <label class="col-sm-6 col-form-label">Ingrese la cantidad de litros de agua a usar</label>
+                <div class="col-sm-6">
+                    <input type="number" name="cantidadAgua" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-2 text-center"> <!-- Fila para el estadio actual -->
+                <label for="etapas" class="col-sm-6 col-form-label">Seleccione el estadio actual</label>
+                <div class="col-sm-6">
+                    <select name="etapas" id="etapas" class="form-select">
+                        <option value="esqueje">Esqueje</option>
+                        <option value="vegetativo">Vegetativo</option>
+                        <option value="preFlora">Pre Flora</option>
+                        <option value="flora">Flora</option>
+                        <option value="floraPlus">Flora +</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3 text-center"> <!-- Fila para los botones -->
+                <div class="col-sm-12 text-center">
+                    <button id="calcular" class="btn btn-primary">CALCULAR</button>
+                    <button id="limpiar" class="btn btn-secondary ms-2">LIMPIAR</button> <!-- Botón limpiar al lado -->
+                </div>
+            </div>
+        </form>
+        <div class="mt-3 text-center">
+            <div>El resultado es de:</div>
+            <output class="form-control d-inline-block" style="width: auto; max-width: 25%;"> <!-- Área de resultado -->
+            </output>
+        </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="modoOscuro.js"></script>
     <script src="calculadoraFertilizantes.js"></script>
 </body>

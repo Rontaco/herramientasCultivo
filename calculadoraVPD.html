@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HERRAMIENTAS DE CULTIVO</title>
     <link rel="stylesheet" href="style.css">
+    <!--Bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="claro">
-<header>
-    <a href="index.html"><img id="logoHC" src="media/logoHC.svg" alt="Logo de herramientas de cultivo"></a>
-    <h1>CALCULADORA VPD</h1>
-    <button id="modoOscuroClaro">CAMBIAR A MODO OSCURO</button>
-</header>
-<form action="">
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html"><img class="navbar-brand img-fluid" id="logoHC" src="media/logoHC.svg" alt="Logo de herramientas de cultivo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropdown-herramientasdecultivo" href="#" role="button" data-bs-toggle="dropdown">HERRAMIENTAS DE CULTIVO</a>
+                    <ul class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <li><a class="dropdown-item" href="calculadoraVPD.html">Calculadora de VPD</a></li>
+                            <li><a class="dropdown-item" href="calculadoraFertilizantes.html">Calculadora de fertilizantes amazing</a></li>
+                            <li><a class="dropdown-item" href="calculadoraDLI.html">Calculadora de DLI</a></li>
+                            <li><a class="dropdown-item" href="calculadoraPPFD.html">Calculadora de PPFD</a></li>
+                        </div>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <button id="modoOscuroClaro">CAMBIAR A MODO OSCURO</button>
+            </div>
+          </nav>
+    </header>
+<!-- <form action="">
     <label for="temperatura">Ingrese la temperatura</label>
         <input type="text" name="temperatura" id="temperatura">
         <select name="tipoDeTemperatura" id="tipoDeTemperatura">
@@ -28,13 +51,55 @@
         <option value="floraTardia">Flora media o tardia</option>
     </select>   
     <button id="calcular">CALCULAR</button>
-    
-
 </form>
 <div>
     <output></output>
-    <button id="limpiar">LIMPIAR</button>
+    <button id="limpiar">LIMPIAR</button> -->
+<!-- </div> -->
+<div class="container mt-5 container-vpd">
+    <form action="">
+        <div class="row mb-3 text-center"> <!-- Fila para la temperatura -->
+            <label for="temperatura" class="col-sm-4 col-form-label">Ingrese la temperatura</label>
+            <div class="col-sm-4">
+                <input type="text" name="temperatura" id="temperatura" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <select name="tipoDeTemperatura" id="tipoDeTemperatura" class="form-select">
+                    <option value="celsius">C°</option>
+                    <option value="fahrenheit">F°</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3 text-center"> <!-- Fila para la humedad -->
+            <label for="humedad" class="col-sm-4 col-form-label">Ingrese la humedad relativa</label>
+            <div class="col-sm-8">
+                <input type="text" name="humedad" id="humedad" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3 text-center"> <!-- Fila para etapas -->
+            <label for="etapas" class="col-sm-4 col-form-label">Seleccione la etapa</label>
+            <div class="col-sm-8">
+                <select name="etapas" id="etapas" class="form-select">
+                    <option value="vegeTemprana">Vegetación temprana</option>
+                    <option value="preFlora">Vegetación tardía / Pre Flora</option>
+                    <option value="floraTardia">Flora media o tardía</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3"> <!-- Fila para botones -->
+            <div class="col-sm-4 offset-sm-4"> <!-- Centrar los botones -->
+                <button id="calcular" class="btn btn-primary">CALCULAR</button>
+                <button id="limpiar" class="btn btn-secondary">LIMPIAR</button>
+            </div>
+        </div>
+    </form>
+    <div class="row mt-3 justify-content-center"> <!-- Centrar el output -->
+        <div class="col-sm-4"> <!-- Ocupa 4 columnas -->
+            <output class="form-control"></output> <!-- Área de resultado -->
+        </div>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="modoOscuro.js"></script>
 <script src="calculadoraVPD.js"></script>
 </body>

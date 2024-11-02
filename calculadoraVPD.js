@@ -25,7 +25,7 @@ function evalVPD (vpd, etapa){
             if (vpd>= rango.min && vpd <=rango.max) {
                 return 'correcto'
             } else {
-                return 'incorrecto, deberias corregir tus parametros'
+                return 'inadecuado, deberias corregir tus parametros'
             }
         }
 

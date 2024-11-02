@@ -4,8 +4,11 @@ const limpiar = document.querySelector("#limpiar")
 
 function calculoFertilizantes(x) {
     fertilizanteVega=cantidadAguaValue*ratiosFertilización[x][0]
+    fertilizanteVega=(fertilizanteVega.toFixed(2))
     fertilizanteMacro=cantidadAguaValue*ratiosFertilización[x][1]
+    fertilizanteMacro=(fertilizanteMacro.toFixed(2))
     fertilizanteFlora=cantidadAguaValue*ratiosFertilización[x][2]
+    fertilizanteFlora=(fertilizanteFlora.toFixed(2))
 }
 let cantidadAguaValue,fertilizanteVega, fertilizanteMacro, fertilizanteFlora, etapasValue
 
