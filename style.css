@@ -16,7 +16,7 @@
     filter: invert(100%);
 }
 /* CONFIGURACION DROPDOWN */
-.dropdown-herramientasdecultivo {
+.dropdown-herramientasdecultivo, .a-posts {
     padding: 0px 15px !important;
     color: white !important;
     font-size: 30px !important;
