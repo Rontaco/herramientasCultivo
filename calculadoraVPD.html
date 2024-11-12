@@ -38,49 +38,58 @@
             </div>
           </nav>
     </header>
-<div class="container mt-5 container-vpd">
-    <form action="">
-        <div class="row mb-3 text-center"> <!-- Fila para la temperatura -->
-            <label for="temperatura" class="col-sm-4 col-form-label">Ingrese la temperatura</label>
-            <div class="col-sm-4">
-                <input type="text" name="temperatura" id="temperatura" class="form-control">
+    <div class="container mt-5 ">
+        <form action="" class="mx-auto form-vpd" style="max-width: 600px;">
+            <!-- Fila para la temperatura -->
+            <div class="row mb-3 text-center">
+                <label for="temperatura" class="col-sm-6 col-form-label">Ingrese la temperatura</label>
+                <div class="col-sm-4">
+                    <input type="text" name="temperatura" id="temperatura" class="form-control">
+                </div>
+                <div class="col-sm-2">
+                    <select name="tipoDeTemperatura" id="tipoDeTemperatura" class="form-select">
+                        <option value="celsius">C°</option>
+                        <option value="fahrenheit">F°</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <select name="tipoDeTemperatura" id="tipoDeTemperatura" class="form-select">
-                    <option value="celsius">C°</option>
-                    <option value="fahrenheit">F°</option>
-                </select>
+    
+            <!-- Fila para la humedad -->
+            <div class="row mb-3 text-center">
+                <label for="humedad" class="col-sm-6 col-form-label">Ingrese la humedad relativa</label>
+                <div class="col-sm-6">
+                    <input type="text" name="humedad" id="humedad" class="form-control">
+                </div>
+            </div>
+    
+            <!-- Fila para etapas -->
+            <div class="row mb-3 text-center">
+                <label for="etapas" class="col-sm-6 col-form-label">Seleccione la etapa</label>
+                <div class="col-sm-6">
+                    <select name="etapas" id="etapas" class="form-select">
+                        <option value="vegeTemprana">Vegetación temprana</option>
+                        <option value="preFlora">Vegetación tardía / Pre Flora</option>
+                        <option value="floraTardia">Flora media o tardía</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Fila para botones -->
+            <div class="row mb-3 text-center">
+                <div class="col-sm-12">
+                    <button id="calcular" class="btn btn-primary me-2">CALCULAR</button>
+                    <button id="limpiar" class="btn btn-secondary">LIMPIAR</button>
+                </div>
+            </div>
+        </form>
+    
+        <!-- Área de resultado centrada -->
+        <div class="row mt-4 justify-content-center">
+            <div class="col-sm-6">
+                <output class="form-control text-center"></output>
             </div>
         </div>
-        <div class="row mb-3 text-center"> <!-- Fila para la humedad -->
-            <label for="humedad" class="col-sm-4 col-form-label">Ingrese la humedad relativa</label>
-            <div class="col-sm-8">
-                <input type="text" name="humedad" id="humedad" class="form-control">
-            </div>
-        </div>
-        <div class="row mb-3 text-center"> <!-- Fila para etapas -->
-            <label for="etapas" class="col-sm-4 col-form-label">Seleccione la etapa</label>
-            <div class="col-sm-8">
-                <select name="etapas" id="etapas" class="form-select">
-                    <option value="vegeTemprana">Vegetación temprana</option>
-                    <option value="preFlora">Vegetación tardía / Pre Flora</option>
-                    <option value="floraTardia">Flora media o tardía</option>
-                </select>
-            </div>
-        </div>
-        <div class="row mb-3"> <!-- Fila para botones -->
-            <div class="col-sm-4 offset-sm-4"> <!-- Centrar los botones -->
-                <button id="calcular" class="btn btn-primary">CALCULAR</button>
-                <button id="limpiar" class="btn btn-secondary">LIMPIAR</button>
-            </div>
-        </div>
-    </form>
-    <div class="row mt-3 justify-content-center"> <!-- Centrar el output -->
-        <div class="col-sm-4"> <!-- Ocupa 4 columnas -->
-            <output class="form-control"></output> <!-- Área de resultado -->
-        </div>
-    </div>
-</div>
+    </div>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="modoOscuro.js"></script>
 <script src="calculadoraVPD.js"></script>

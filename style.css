@@ -81,3 +81,22 @@ output {
     width: 240px;
     height: 240px;
 }
+.form-vpd, .form-calculadoraFertilizantes, .form-dli, .form-ppfd{
+    padding: 30px;
+    border: 10px groove var(--color-primario);
+    border-radius: 5%;
+}
+.container-vpd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    transition: all 0.4s ease;
+    border-radius: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px 2px #39FF14;
+}
