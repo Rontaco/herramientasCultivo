@@ -1,9 +1,17 @@
 :root {
+    /*COLORES*/
     --color-primario: #4F6F52;
     --color-secundario: #739072;
     --color-terciario: #86A789;
     --color-cuaternario: #D2E3C8;
     --color-texto: #212121;
+
+    /*TAMAÑOS DE FUENTE*/
+    --letra-enunciados: 30px;
+    --letra-subenunciados: 25px;
+    --letra-texto: 20px;
+    --letra-boton: 15px;
+    --letra-output: 17px;
 }
 
 /* CONFIGURACION MODO OSCURO */
@@ -30,7 +38,7 @@
 .dropdown-herramientasdecultivo, .a-posts {
     padding: 0px 15px !important;
     color: var(--color-cuaternario) !important;
-    font-size: 30px !important;
+    font-size: var(--letra-enunciados) !important;
     font-weight: 500 !important;
 }
 .dropdown-content {
@@ -56,24 +64,30 @@
     background-color: var(--color-terciario);
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 25px;
+    font-size: var(--letra-subenunciados);
 }
 .bienvenida-2 {
     color: var(--color-texto);
     padding: 30px 100px;
-    font-size: 20px;
+    font-size: var(--letra-boton);
 }
 .imagen-index {
-    display: flex;
-    padding: 10px 100px;
+    height: 300px;
+    padding: 15px 100px;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    object-fit: cover;
 }
 output {
-    border-radius: 10px !important;
-    border: 2px solid rgb(224, 224, 17) !important;
+    box-shadow: 0 0 15px 2px red;
     padding: 10px !important;
+    max-width: 600px;
+    text-align: center;
+    background-color: white;
+    border-radius: 25px;
+    font-size: var(--letra-output);
+}
+.oculto {
+    display: none;
 }
 .container-calculadoraFertilizantes, .container-vpd, .container-dli, .container-ppfd{
     font-size: 20px;
@@ -104,4 +118,16 @@ output {
 
 .card:hover {
     box-shadow: 0 0 15px 2px #39FF14;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.elemento-fadeIn {
+    animation: fadeIn 1500ms ease-in;
 }

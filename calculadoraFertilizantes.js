@@ -25,6 +25,8 @@ const ratiosFertilización = {
 };
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  const resultado = document.getElementById('resultado');
+  resultado.classList.remove('oculto');
   const { cantidadAgua, etapas } = e.target.elements;
   cantidadAguaValue = Number(cantidadAgua.value);
   etapasValue = etapas.value;

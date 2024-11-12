@@ -10,6 +10,8 @@ form.addEventListener("submit", (e) => {
   ppfdPromedioDliValue = Number(ppfdPromedioDli.value);
   let dliResultante = ppfdPromedioDliValue * horasDeLuzValue * 0.0036;
   dliResultante = dliResultante.toFixed(2);
+  const resultado = document.getElementById('resultado');
+  resultado.classList.remove('oculto');
   if (
     horasDeLuzValue > 24 ||
     horasDeLuzValue < 0 ||

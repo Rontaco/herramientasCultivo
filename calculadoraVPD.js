@@ -45,6 +45,8 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const { temperatura, humedad, etapas, tipoDeTemperatura } = e.target.elements;
   tipoDeTemperaturaValue = tipoDeTemperatura.value;
+  const resultado = document.getElementById('resultado');
+  resultado.classList.remove('oculto');
 
   if (tipoDeTemperaturaValue == "celsius") {
     temperaturaValue = Number(temperatura.value);

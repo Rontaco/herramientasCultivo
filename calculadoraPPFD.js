@@ -33,6 +33,8 @@ form.addEventListener("submit", (e) => {
   const { lumenes, opcionLeds } = e.target.elements;
   lumenesValue = Number(lumenes.value);
   opcionLedsValue = opcionLeds.value;
+  const resultado = document.getElementById('resultado');
+  resultado.classList.remove('oculto');
 
   ppfdCalculados = luces.map((luz) => {
     return {
