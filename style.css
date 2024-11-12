@@ -1,10 +1,17 @@
+:root {
+    --color-primario: #4F6F52;
+    --color-secundario: #739072;
+    --color-terciario: #86A789;
+    --color-cuaternario: #D2E3C8;
+}
+
 /* CONFIGURACION MODO OSCURO */
 .claro {
-    background-color: whitesmoke;
+    background-color: var(--color-cuaternario);
     color: black;
 }
 .oscuro {
-    background-color: black;
+    background-color: var(--color-secundario);
     color: yellow;
 }
 
@@ -32,10 +39,9 @@
 }
 /* CONFIGURACION BOTON OSCUROCLARO */
 #modoOscuroClaro {
-    padding: 5px;
-    border:2px solid green;
-    border-radius: 10px;
-    background-color:#cacfd2;
+    padding: 5px 10px 5px 10px;
+    border: 5px solid var(--color-terciario);
+    border-radius: 30px;
     color: black;
     font-style: italic;
     font-weight: 600;
@@ -43,17 +49,21 @@
 }
 .bienvenida {
     color: black !important;
-    background-color: gray;
+    background-color: var(--color-terciario);
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 25px;
 }
 .bienvenida-2 {
-    padding: 70px 100px;
+    padding: 30px 100px;
     font-size: 20px;
 }
 .imagen-index {
-    padding: 10px 0px;
+    display: flex;
+    padding: 10px 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 output {
     border-radius: 10px !important;
@@ -63,4 +73,11 @@ output {
 .container-calculadoraFertilizantes, .container-vpd, .container-dli, .container-ppfd{
     font-size: 20px;
     font-weight: 500;
+}
+.navbar-configuracion {
+    background-color: var(--color-primario) !important
+}
+.card-img-top{
+    width: 240px;
+    height: 240px;
 }

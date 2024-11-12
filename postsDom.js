@@ -21,7 +21,7 @@ fetch("media/posts.json")
                     <a href="${post.link}" target="_blank">
                         <img src="${post.imageUrl}" class="card-img-top" alt="${post.title}">
                     </a>
-                    <div class="card-body">
+                    <div class="card-body card-body-configuracion">
                         <h5 class="card-title">${post.title}</h5>
                         <p class="card-text">Fecha: ${post.date}</p>
                     </div>
