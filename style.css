@@ -3,6 +3,7 @@
     --color-secundario: #739072;
     --color-terciario: #86A789;
     --color-cuaternario: #D2E3C8;
+    --color-texto: #212121;
 }
 
 /* CONFIGURACION MODO OSCURO */
@@ -17,15 +18,18 @@
 
 /* CONFIGURACION LOGO */
 #logoHC {
-    width: 120px;
-    height: 120px;
-    padding: 0px 15px;
+    width: 140px;
+    height: 140px;
     filter: invert(100%);
+    border-radius: 50%;
+    object-fit: contain;
+    box-sizing: border-box;
+    padding: 10px;
 }
 /* CONFIGURACION DROPDOWN */
 .dropdown-herramientasdecultivo, .a-posts {
     padding: 0px 15px !important;
-    color: white !important;
+    color: var(--color-cuaternario) !important;
     font-size: 30px !important;
     font-weight: 500 !important;
 }
@@ -34,7 +38,7 @@
     padding: 0px px;
 }
 .dropdown-item {
-    background-color: black;
+    background-color: var(--color-texto);
     color: white;
 }
 /* CONFIGURACION BOTON OSCUROCLARO */
@@ -48,13 +52,14 @@
     font-family: 'Times New Roman', Times, serif;
 }
 .bienvenida {
-    color: black !important;
+    color: #303030 !important;
     background-color: var(--color-terciario);
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 25px;
 }
 .bienvenida-2 {
+    color: var(--color-texto);
     padding: 30px 100px;
     font-size: 20px;
 }
