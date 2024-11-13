@@ -47,6 +47,7 @@ form.addEventListener("submit", (e) => {
   tipoDeTemperaturaValue = tipoDeTemperatura.value;
   const resultado = document.getElementById('resultado');
   resultado.classList.remove('oculto');
+  
 
   if (tipoDeTemperaturaValue == "celsius") {
     temperaturaValue = Number(temperatura.value);
@@ -73,4 +74,5 @@ limpiar.addEventListener("click", (e) => {
   e.preventDefault();
   form.reset();
   output.textContent = "";
+  resultado.classList.add('oculto');
 });

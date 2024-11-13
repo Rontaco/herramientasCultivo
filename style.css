@@ -7,6 +7,7 @@
     --color-texto: #212121;
 
     /*TAMAÑOS DE FUENTE*/
+    --letra-XXXL: 60px;
     --letra-enunciados: 30px;
     --letra-subenunciados: 25px;
     --letra-texto: 20px;
@@ -69,7 +70,7 @@
 .bienvenida-2 {
     color: var(--color-texto);
     padding: 30px 100px;
-    font-size: var(--letra-boton);
+    font-size: var(--letra-texto);
 }
 .imagen-index {
     height: 300px;
@@ -89,7 +90,7 @@ output {
 .oculto {
     display: none;
 }
-.container-calculadoraFertilizantes, .container-vpd, .container-dli, .container-ppfd{
+.container-fertilizantes, .container-vpd, .container-dli, .container-ppfd{
     font-size: 20px;
     font-weight: 500;
 }
@@ -130,4 +131,18 @@ output {
 }
 .elemento-fadeIn {
     animation: fadeIn 1500ms ease-in;
+}
+.texto-youtubers {
+    font-size:var(--letra-XXXL);
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-shadow: 3px 3px 5px var(--color-primario); /* Sombra de texto */
+    font-weight: 1000;
+    color: white;
+}
+#postsContainer {
+    padding: 50px 0px;
+}
+.youtubeContainer {
+    padding: 50px 0px;
 }

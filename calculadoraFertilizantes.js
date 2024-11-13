@@ -42,4 +42,5 @@ limpiar.addEventListener("click", (e) => {
   e.preventDefault();
   form.reset();
   output.textContent = "";
+  resultado.classList.add('oculto');
 });

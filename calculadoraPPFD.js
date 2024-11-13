@@ -59,3 +59,9 @@ form.addEventListener("submit", (e) => {
   });
   output.innerText = `${mensajePpfd}`;
 });
+limpiar.addEventListener("click", (e) => {
+  e.preventDefault();
+  form.reset();
+  output.textContent = "";
+  resultado.classList.add('oculto');
+});
