@@ -7,7 +7,7 @@
     --color-texto: #212121;
 
     /*TAMAÑOS DE FUENTE*/
-    --letra-XXXL: 60px;
+    --letra-XXXL: 45px;
     --letra-enunciados: 30px;
     --letra-subenunciados: 25px;
     --letra-texto: 20px;
@@ -136,13 +136,20 @@ output {
     font-size:var(--letra-XXXL);
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px; /* Espaciado entre letras */
-    text-shadow: 3px 3px 5px var(--color-primario); /* Sombra de texto */
+    text-shadow: 3px 5px 5px var(--color-primario); /* Sombra de texto */
     font-weight: 1000;
     color: white;
 }
 #postsContainer {
     padding: 50px 0px;
 }
-.youtubeContainer {
-    padding: 50px 0px;
+
+
+.descripcionYoutuber, .tituloYoutuber{
+    color: white;
+    text-shadow: 3px 3px 5px black;
+    font-weight: 500;
+}
+.carouselInfo {
+    background-color: #4F6F524D;
 }

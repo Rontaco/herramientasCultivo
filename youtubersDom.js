@@ -48,9 +48,9 @@ function addYoutuberToCarousel(channelData, youtuber, index) {
         <a href="${youtuber.link}" target="_blank">
             <img src="${thumbnails.high.url}" class="d-block w-100" alt="${title}">
         </a>
-        <div class="carousel-caption d-none d-md-block">
-            <h5>${title}</h5>
-            <p>${youtuber.description}</p>
+        <div class="carouselInfo carousel-caption d-none d-md-block">
+            <h5 class="tituloYoutuber">${title}</h5>
+            <p class="descripcionYoutuber">${youtuber.description}</p>
         </div>
     `;
 
