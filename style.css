@@ -102,9 +102,10 @@ output {
     height: 240px;
 }
 .form-vpd, .form-calculadoraFertilizantes, .form-dli, .form-ppfd{
-    padding: 30px;
-    border: 10px groove var(--color-primario);
-    border-radius: 5%;
+    border: 5px solid var(--color-primario);
+    padding: 20px; /* Espacio interior */
+    border-radius: 8px; /* Bordes redondeados opcional */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para efecto de relieve */
 }
 .container-vpd {
     display: flex;
